@@ -36,7 +36,6 @@ Java8+, любой сервер приложений WildFly, Tomcat, etc..
 - Файл [docker-compose.yml] - для сборки проекта в одном docker compose
 
 ### Сборка и запуск
-!!!Для сборки и запуска проекта необходимы gradle и docker!!!
 1. Запустить сборку - `gradle build`
 2. Запустить docker compose - `docker-compose up`
 3. WSDL SOAP сервиса модуля 1 - http://localhost:50001/?wsdl
