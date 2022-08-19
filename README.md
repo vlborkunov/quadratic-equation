@@ -31,9 +31,9 @@ Java8+, любой сервер приложений WildFly, Tomcat, etc..
 ### Структура
 - Модуль [quadratic-equation-soap](/quadratic-equation-soap) - реализация бизнес-логики, SOAP сервиса, unit-тесты
 - Модуль [quadratic-equation-rest](/quadratic-equation-rest) - реализация REST сервиса
-- Папка [/SoapUI] - проект SoapUI для интеграционных тестов
-- Папка [/Postman] - проект Postman для интеграционных тестов
-- Файл [docker-compose.yml] - для сборки проекта в одном docker compose
+- Папка [/SoapUI](/SoapUI) - проект SoapUI для интеграционных тестов
+- Папка [/Postman](/Postman) - проект Postman для интеграционных тестов
+- Файл [docker-compose.yml](docker-compose.yml) - для сборки проекта в одном docker compose
 
 ### Сборка и запуск
 1. Запустить сборку - `gradle build`
