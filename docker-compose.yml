@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  quadratic-equation-soap:
+    build: quadratic-equation-soap/
+    ports:
+      - "50001:8080"
+    networks:
+      - internal-network
+  quadratic-equation-rest:
+    build: quadratic-equation-rest/
+    ports:
+      - "50002:8080"
+    networks:
+      - internal-network
+    depends_on:
+      - quadratic-equation-soap
+networks:
+  internal-network:
+    driver: "bridge"

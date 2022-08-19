@@ -1,0 +1,4 @@
+rootProject.name = 'quadratic-equation'
+include 'quadratic-equation-soap'
+include 'quadratic-equation-rest'
+

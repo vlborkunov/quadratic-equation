@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "49aac03e-852b-4cde-9d92-be68fd5c2fac",
+		"name": "Quadratic Equation REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "1302636"
+	},
+	"item": [
+		{
+			"name": "Решение квадратного уровнения с помощью REST запроса",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:50002/api/calc?a=1&b=-3&c=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50002",
+					"path": [
+						"api",
+						"calc"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "1"
+						},
+						{
+							"key": "b",
+							"value": "-3"
+						},
+						{
+							"key": "c",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,57 @@
+plugins {
+    id 'war'
+}
+
+group 'ru.vlborkunov'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.7.1'
+}
+
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compileOnly('jakarta.platform:jakarta.jakartaee-web-api:9.0.0')
+    compileOnly('org.projectlombok:lombok:1.18.22')
+    compileOnly('jakarta.xml.ws:jakarta.xml.ws-api:4.0.0')
+    annotationProcessor('org.projectlombok:lombok:1.18.22')
+    implementation('org.glassfish.jersey.containers:jersey-container-servlet:3.0.4')
+    implementation('org.glassfish.jersey.media:jersey-media-json-jackson:3.0.4')
+    implementation('org.glassfish.jersey.inject:jersey-cdi2-se:3.0.4')
+    implementation('javax.xml.bind:jaxb-api:2.3.1')
+    implementation('com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.12.7')
+    implementation('com.sun.xml.ws:jaxws-tools:4.0.0')
+    implementation('com.sun.xml.ws:jaxws-rt:3.0.2')
+    implementation('com.sun.xml.ws:jaxws-ri:4.0.0')
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task wsImport(type: JavaExec) {
+    classpath sourceSets.main.runtimeClasspath
+    main = "com.sun.tools.ws.WsImport"
+        args "-s", "src/main/java",
+            "-keep",
+            "-Xnocompile",
+            "-extension",
+            "-encoding", "UTF-8",
+            "-wsdllocation", "http://quadratic-equation-soap:8080?wsdl",
+            "src/main/resources/wsdl/QuadraticEquationSOAP.wsdl"
+}
