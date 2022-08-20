@@ -16,13 +16,11 @@ import ru.vlborkunov.quadraticequation.rest.webservice.exception.SOAPException;
 public class SOAPExceptionMapper implements ExceptionMapper<SOAPException> {
     @Override
     @SneakyThrows
-    public Response toResponse(SOAPException exception) {
+    public Response toResponse(final SOAPException exception) {
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        Response response = Response
+        return Response
                 .status(Response.Status.BAD_REQUEST)
                 .entity(ow.writeValueAsString(exception))
                 .build();
-        return response;
     }
-
 }

@@ -12,6 +12,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public class NonQuadraticEquationWSException extends Exception {
     private static final long serialVersionUID = 1L;
-    private String errorMessage;
-    private String formula;
+    private final String errorMessage;
+    private final String formula;
 }

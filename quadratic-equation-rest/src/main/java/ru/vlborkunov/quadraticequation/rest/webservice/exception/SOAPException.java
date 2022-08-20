@@ -3,7 +3,7 @@ package ru.vlborkunov.quadraticequation.rest.webservice.exception;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
 
 /**
  * Исключение при возникновении ошибки при вызове
@@ -20,13 +20,13 @@ import lombok.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SOAPException extends Exception {
     @JsonProperty
-    private String errorMessage;
+    private final String errorMessage;
     @JsonProperty
-    private String formula;
+    private final String formula;
     @JsonProperty
     private Double d;
 
-    public SOAPException(String errorMessage, String formula) {
+    public SOAPException(final String errorMessage, final String formula) {
         this.errorMessage = errorMessage;
         this.formula = formula;
     }

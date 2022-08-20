@@ -26,7 +26,7 @@ public class QuadraticEquationSOAPImpl implements QuadraticEquationSOAP {
      * @throws NonQuadraticEquationWSException - при a=0, тогда уравнение не квадратное
      */
     @Override
-    public SolveResponse solve(SolveRequest solveRequest)
+    public SolveResponse solve(final SolveRequest solveRequest)
             throws NegativeDiscriminantWSException, NonQuadraticEquationWSException {
 
         double a = solveRequest.getA();
@@ -50,7 +50,7 @@ public class QuadraticEquationSOAPImpl implements QuadraticEquationSOAP {
             );
         }
 
-        if (discriminant.equals(BigDecimal.ZERO)) {
+        if (discriminant.compareTo(BigDecimal.ZERO) == 0) {
             return new SolveResponse(
                     formula,
                     discriminant.doubleValue(),
@@ -67,19 +67,19 @@ public class QuadraticEquationSOAPImpl implements QuadraticEquationSOAP {
 
     }
 
-    private Double x1Calc(double a, double b, double d) {
+    private Double x1Calc(final double a, final double b, final double d) {
         return (-b - Math.sqrt(d)) / (2 * a);
     }
 
-    private Double x1Calc(double a, double b) {
+    private Double x1Calc(final double a, final double b) {
         return -b / (2 * a);
     }
 
-    private Double x2Calc(double a, double b, double d) {
+    private Double x2Calc(final double a, final double b, final double d) {
         return (-b + Math.sqrt(d)) / (2 * a);
     }
 
-    private String formulaPrepare(double a, double b, double c) {
+    private String formulaPrepare(final double a, final double b, final double c) {
         StringBuilder builder = new StringBuilder();
         if (Math.abs(a) > 2 * Double.MIN_VALUE) {
             builder.append(a);
@@ -104,7 +104,7 @@ public class QuadraticEquationSOAPImpl implements QuadraticEquationSOAP {
         return builder.toString();
     }
 
-    private BigDecimal discriminantCalc(double a, double b, double c) {
-        return new BigDecimal(b * b - 4 * a * c);
+    private BigDecimal discriminantCalc(final double a, final double b, final double c) {
+        return BigDecimal.valueOf(b * b - 4 * a * c);
     }
 }

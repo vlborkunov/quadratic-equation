@@ -8,9 +8,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for NonQuadraticEquationWSException complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>{@code
  * <complexType name="NonQuadraticEquationWSException">
  *   <complexContent>
@@ -24,14 +24,12 @@ import jakarta.xml.bind.annotation.XmlType;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "NonQuadraticEquationWSException", propOrder = {
-    "errorMessage",
-    "formula",
-    "message"
+        "errorMessage",
+        "formula",
+        "message"
 })
 public class NonQuadraticEquationWSException {
 
@@ -41,11 +39,9 @@ public class NonQuadraticEquationWSException {
 
     /**
      * Gets the value of the errorMessage property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getErrorMessage() {
         return errorMessage;
@@ -53,11 +49,9 @@ public class NonQuadraticEquationWSException {
 
     /**
      * Sets the value of the errorMessage property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setErrorMessage(String value) {
         this.errorMessage = value;
@@ -65,11 +59,9 @@ public class NonQuadraticEquationWSException {
 
     /**
      * Gets the value of the formula property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFormula() {
         return formula;
@@ -77,11 +69,9 @@ public class NonQuadraticEquationWSException {
 
     /**
      * Sets the value of the formula property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFormula(String value) {
         this.formula = value;
@@ -89,11 +79,9 @@ public class NonQuadraticEquationWSException {
 
     /**
      * Gets the value of the message property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMessage() {
         return message;
@@ -101,11 +89,9 @@ public class NonQuadraticEquationWSException {
 
     /**
      * Sets the value of the message property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMessage(String value) {
         this.message = value;

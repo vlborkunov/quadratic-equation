@@ -17,11 +17,21 @@ import java.util.Objects;
  */
 @Path("/calc")
 public class QuadraticEquationREST {
+    /**
+     * Сервисе solve для решения квадратного уравнения по query параметрам
+     * вида ax^2+bx+c=0. Проктирует запрос вызывая SOAP сервис модуля quadratic-equation-soap:
+     *
+     * @param a - параметр a, должен быть обязательным и не равным 0
+     * @param b - параметр b
+     * @param c - параметр с
+     * @return - возвращает ответ с корнями и дискриминантом, а так же с строковым представлением уравнения
+     * @throws SOAPException
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public SolveRESTResponse solve(@QueryParam("a") Double a,
-                                   @QueryParam("b") Double b,
-                                   @QueryParam("c") Double c) throws SOAPException {
+    public SolveRESTResponse solve(@QueryParam("a") final Double a,
+                                   @QueryParam("b") final Double b,
+                                   @QueryParam("c") final Double c) throws SOAPException {
         Request request = buildRequest(a, b, c);
 
         QuadraticEquationSOAP serviceProxy = new QuadraticEquationSOAPImplService().getQuadraticEquationSOAPImplPort();
@@ -38,7 +48,7 @@ public class QuadraticEquationREST {
         }
     }
 
-    private SolveRESTResponse buildRESTResponse(Response response) {
+    private SolveRESTResponse buildRESTResponse(final Response response) {
         SolveRESTResponse restResponse = new SolveRESTResponse();
         restResponse.setFormula(response.getFormula());
         restResponse.setD(response.getD());
@@ -49,7 +59,7 @@ public class QuadraticEquationREST {
         return restResponse;
     }
 
-    private Request buildRequest(Double a, Double b, Double c) {
+    private Request buildRequest(final Double a, final Double b, final Double c) {
         Request request = new Request();
         if (Objects.nonNull(a)) {
             request.setA(a);

@@ -12,7 +12,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class NegativeDiscriminantWSException extends Exception {
     private static final long serialVersionUID = 1L;
-    private String errorMessage;
-    private String formula;
-    private Double d;
+    private final String errorMessage;
+    private final String formula;
+    private final Double d;
 }
